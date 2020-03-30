@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using KidManagementSystem.Models;
+using Microsoft.Data.SqlClient;
 
 namespace KidManagementSystem.Controllers
 {
@@ -79,10 +80,21 @@ namespace KidManagementSystem.Controllers
         [HttpPost]
         public async Task<ActionResult<Students>> PostStudents(Students students)
         {
-            _context.Student.Add(students);
-            await _context.SaveChangesAsync();
+            var data = _context.Database.ExecuteSqlCommand("spStudentRegister @FatherName,@MotherName,@MobileNo,@Address,@StudentName,@Age",
 
-            return CreatedAtAction("GetStudents", new { id = students.StudentId }, students);
+                new SqlParameter("@FatherName", students.FatherName),
+                new SqlParameter("@MotherName", students.MotherName),
+                new SqlParameter("@MobileNo", students.MobileNo),
+                new SqlParameter("@Address", students.Address),
+                new SqlParameter("@StudentName", students.StudentName),
+                new SqlParameter("@Age", students.Age)
+                );
+            return Ok(data);
+
+          //  _context.Student.Add(students);
+          //await _context.SaveChangesAsync();
+
+           // return CreatedAtAction("GetStudents", new { id = students.StudentId }, students);
         }
 
         // DELETE: api/Students/5

@@ -80,8 +80,8 @@ namespace KidManagementSystem.Controllers
         [HttpPost]
         public async Task<ActionResult<PayFees>> PostPayFees(PayFees payFees)
         {
-            var data = _context.Database.ExecuteSqlCommand("spPayFees @AdmissionId ,@Fees ",
-           new SqlParameter("@AdmissionId", payFees.AdmissionId),
+            var data = _context.Database.ExecuteSqlCommand("spPayFees @StudentName ,@Fees ",
+           new SqlParameter("@StudentName", payFees.StudentName),
            new SqlParameter("@Fees", payFees.Fees)
 
            );

@@ -12,17 +12,17 @@
         <td>SecondInstallment</td>
         <td>ThirdInstallment</td></tr>
         <tr></tr>
-        <tr *ngFor="let list of enquiryList">
-            <td>{{list.sno}}</td>
-            <td>{{list.session}}</td>
-        <td>{{list.standard}}</td>
-        <td>{{list.seat}}</td>
-        <td>{{list.TotalFee}}</td>
-        <td>{{list.firstInstallment}}</td>
-        <td>{{list.secondInstallment}}</td>
-        <td>{{list.thirdInstallment}}</td>
-        <td></td>
-        <td><button routerLink='/admissionForm'>ApplyForAdmission</button></td>
+        <tr *ngFor="let list of enquiryList,let i of index">
+             <td>{{1}}</td> 
+            <td>{{list.SessionName}}</td>
+        <td>{{list.StandardName}}</td>
+        <td>{{list.SeatAvailable}}</td>
+        <td>{{list.TotalFees}}</td>
+        <td>{{list.FirstInstallment}}</td>
+        <td>{{list.SecondInstallment}}</td>
+        <td>{{list.ThirdInstallment}}</td>
+         <td></td>
+        <td><button routerLink='/studentAdmission'>ApplyForAdmission</button></td> 
         </tr>
             </table>
             </div>

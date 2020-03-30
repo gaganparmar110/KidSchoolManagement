@@ -12,5 +12,6 @@ namespace KidManagementSystem.Models
         public int PayFeesId { get; set; }
         public int AdmissionId { get; set; }
         public long Fees { get; set; }
+        public string StudentName { get; set; }
     }
 }

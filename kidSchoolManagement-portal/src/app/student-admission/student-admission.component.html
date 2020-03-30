@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
-        <div class="card">
-            <div class="jumbotron">
-                <form [formGroup]="studentFormGroup">
+       
+           
+                <form [formGroup]="admissionFormGroup">
                     <h1>Student Registration</h1>
                     <label for="fname">FatherName:</label>
                     <input type="text" formControlName="fatherName"><br>
@@ -17,9 +17,13 @@
                     <input type="text" formControlName="studentName"><br>
                     <label for="age">Age:</label>
                     <input type="tel" formControlName="studentAge"><br>
-                    <button (click)="submit()">Submit</button>
+                    <label for="age">Standard:</label>
+                    <input type="radio"name="standard" value="Nursery" formControlName="standard">Nursery
+                    <input type="radio" name="standard" value="Junior KG" formControlName="standard">Junior KG
+                    <input type="radio"name="standard" value="Senior KG" formControlName="standard"><br>Senior KG
+                    <button (click)="studentAdmission()">Submit</button>
                 </form>
-            </div>
-        </div>
+          
+      
     </div>
 </div>

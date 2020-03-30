@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormBuilder} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http'; 
 @Component({
   selector: 'app-add-student',
@@ -14,24 +14,24 @@ export class AddStudentComponent implements OnInit {
 
   ngOnInit(): void {
     this.studentFormGroup=this.formBuilder.group({
-      studentName:[''],
-      studentAge:[''],
+      fatherName:['',Validators.required],
+      motherName:['',Validators.required],
+      mobileNo:['',Validators.required],
+      address:['',Validators.required],
+      studentName:['',Validators.required],
+      studentAge:['',Validators.required]
      
     })
   }
 
   submit(){
-    this.httpService.post(this.rootURL+'/students',{StudentName:this.studentFormGroup.controls.studentName.value,Age:this.studentFormGroup.controls.studentAge.value}).subscribe(res=>{
+    console.log({FatherName:this.studentFormGroup.controls.fatherName.value});
+    this.httpService.post(this.rootURL+'/students',{FatherName:this.studentFormGroup.controls.fatherName.value,MotherName:this.studentFormGroup.controls.motherName.value,MobileNo:this.studentFormGroup.controls.mobileNo.value,Address:this.studentFormGroup.controls.address.value,StudentName:this.studentFormGroup.controls.studentName.value,Age:this.studentFormGroup.controls.age.value}).subscribe(res=>{
       this.result=res;
       console.log(this.result);
-      if(this.result.StudentName==""){
-        alert("student not Added ");
-      }
-      else{
-        alert("added");
-      }
+    
       
-    });
+    })
   }
 
 }

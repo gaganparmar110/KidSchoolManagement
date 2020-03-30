@@ -22,16 +22,16 @@ namespace KidManagementSystem.Controllers
 
         // GET: api/vEnquiryAdmissions
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<vEnquiryAdmissions>>> GetvEnquiryAdmission()
+        public async Task<ActionResult<IEnumerable<vEnquiryAdmissions>>> GetvEnquiryAdmissions()
         {
-            return await _context.vEnquiryAdmission.ToListAsync();
+            return await _context.vEnquiryAdmissions.ToListAsync();
         }
 
         // GET: api/vEnquiryAdmissions/5
         [HttpGet("{id}")]
         public async Task<ActionResult<vEnquiryAdmissions>> GetvEnquiryAdmissions(int id)
         {
-            var vEnquiryAdmissions = await _context.vEnquiryAdmission.FindAsync(id);
+            var vEnquiryAdmissions = await _context.vEnquiryAdmissions.FindAsync(id);
 
             if (vEnquiryAdmissions == null)
             {
@@ -79,7 +79,7 @@ namespace KidManagementSystem.Controllers
         [HttpPost]
         public async Task<ActionResult<vEnquiryAdmissions>> PostvEnquiryAdmissions(vEnquiryAdmissions vEnquiryAdmissions)
         {
-            _context.vEnquiryAdmission.Add(vEnquiryAdmissions);
+            _context.vEnquiryAdmissions.Add(vEnquiryAdmissions);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetvEnquiryAdmissions", new { id = vEnquiryAdmissions.StandardId }, vEnquiryAdmissions);
@@ -89,13 +89,13 @@ namespace KidManagementSystem.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<vEnquiryAdmissions>> DeletevEnquiryAdmissions(int id)
         {
-            var vEnquiryAdmissions = await _context.vEnquiryAdmission.FindAsync(id);
+            var vEnquiryAdmissions = await _context.vEnquiryAdmissions.FindAsync(id);
             if (vEnquiryAdmissions == null)
             {
                 return NotFound();
             }
 
-            _context.vEnquiryAdmission.Remove(vEnquiryAdmissions);
+            _context.vEnquiryAdmissions.Remove(vEnquiryAdmissions);
             await _context.SaveChangesAsync();
 
             return vEnquiryAdmissions;
@@ -103,7 +103,7 @@ namespace KidManagementSystem.Controllers
 
         private bool vEnquiryAdmissionsExists(int id)
         {
-            return _context.vEnquiryAdmission.Any(e => e.StandardId == id);
+            return _context.vEnquiryAdmissions.Any(e => e.StandardId == id);
         }
     }
 }

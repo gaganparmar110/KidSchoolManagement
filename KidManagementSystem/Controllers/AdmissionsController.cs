@@ -80,9 +80,14 @@ namespace KidManagementSystem.Controllers
         [HttpPost]
         public async Task<ActionResult<Admissions>> PostAdmissions(Admissions admissions)
         {
-            var data = _context.Database.ExecuteSqlCommand("spAdmissions @StudentId ,@StandardId ",
-            new SqlParameter("@StudentId", admissions.StudentId),
-            new SqlParameter("@StandardId", admissions.StandardId)
+            var data = _context.Database.ExecuteSqlCommand("spStudentAdmission @FatherName,@MotherName,@MobileNo,@Address,@StudentName,@Age,@StandardName ",
+            new SqlParameter("@FatherName", admissions.FatherName),
+                new SqlParameter("@MotherName", admissions.MotherName),
+                new SqlParameter("@MobileNo", admissions.MobileNo),
+                new SqlParameter("@Address", admissions.Address),
+                new SqlParameter("@StudentName", admissions.StudentName),
+                new SqlParameter("@Age", admissions.Age),
+                new SqlParameter("@StandardName", admissions.StandardName)
 
             );
             //_context.Admission.Add(admissions);

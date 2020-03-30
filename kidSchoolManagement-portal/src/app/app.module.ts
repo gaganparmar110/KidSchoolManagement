@@ -8,12 +8,14 @@ import { AddStudentComponent } from './add-student/add-student.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { PayFeesComponent } from './pay-fees/pay-fees.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { StudentAdmissionComponent } from './student-admission/student-admission.component';
 @NgModule({
   declarations: [
     AppComponent,
     EnquiryAdmissionComponent,
     AddStudentComponent,
-    PayFeesComponent
+    PayFeesComponent,
+    StudentAdmissionComponent
   ],
   imports: [
     BrowserModule,

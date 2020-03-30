@@ -19,6 +19,7 @@ namespace KidManagementSystem.Models
         public DbSet<PayFees> PayFee { get; set; }
         public DbSet<FeesStructures> FeesStructure { get; set; }
         public DbSet<Sessions> Session { get; set; }
-        public DbSet<vEnquiryAdmissions> vEnquiryAdmission { get; set; }
+        public DbSet<vEnquiryAdmissions> vEnquiryAdmissions{ get; set; }
+        public DbSet<vAdmissions> vAdmissions { get; set; }
 }
 }

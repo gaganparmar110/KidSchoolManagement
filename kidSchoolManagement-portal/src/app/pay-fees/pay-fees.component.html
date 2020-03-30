@@ -1,1 +1,12 @@
-<p>pay-fees works!</p>
+<div class="container">
+    <div class="row">
+        <h1>Fees Portal</h1>
+        <form [formGroup]="feesFormGroup">
+            <label>StudentName:</label>
+            <input type="text" formControlName="studentName"><br>
+            <label>FeesAmount:</label>
+            <input type="number" formControlName="feesAmount"><br>
+            <button (click)="feesPay()">Proceed to Pay</button>
+        </form>
+    </div>
+</div>

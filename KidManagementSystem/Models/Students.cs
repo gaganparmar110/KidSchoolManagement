@@ -13,5 +13,9 @@ namespace KidManagementSystem.Models
         public string StudentName { get; set; }
         public int Age { get; set; }
         public int ParentId { get; set; }
+        public string FatherName { get; set; }
+        public string MotherName { get; set; }
+        public long MobileNo { get; set; }
+        public string Address { get; set; }
     }
 }

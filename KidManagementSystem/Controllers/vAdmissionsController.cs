@@ -11,48 +11,48 @@ namespace KidManagementSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ParentsController : ControllerBase
+    public class vAdmissionsController : ControllerBase
     {
         private readonly KidDetailContext _context;
 
-        public ParentsController(KidDetailContext context)
+        public vAdmissionsController(KidDetailContext context)
         {
             _context = context;
         }
 
-        // GET: api/Parents
+        // GET: api/vAdmissions
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Parents>>> GetParent()
+        public async Task<ActionResult<IEnumerable<vAdmissions>>> GetvAdmissions()
         {
-            return await _context.Parent.ToListAsync();
+            return await _context.vAdmissions.ToListAsync();
         }
 
-        // GET: api/Parents/5
+        // GET: api/vAdmissions/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Parents>> GetParents(int id)
+        public async Task<ActionResult<vAdmissions>> GetvAdmissions(int id)
         {
-            var parents = await _context.Parent.FindAsync(id);
+            var vAdmissions = await _context.vAdmissions.FindAsync(id);
 
-            if (parents == null)
+            if (vAdmissions == null)
             {
                 return NotFound();
             }
 
-            return parents;
+            return vAdmissions;
         }
 
-        // PUT: api/Parents/5
+        // PUT: api/vAdmissions/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutParents(int id, Parents parents)
+        public async Task<IActionResult> PutvAdmissions(int id, vAdmissions vAdmissions)
         {
-            if (id != parents.ParentId)
+            if (id != vAdmissions.AdmissionId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(parents).State = EntityState.Modified;
+            _context.Entry(vAdmissions).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace KidManagementSystem.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ParentsExists(id))
+                if (!vAdmissionsExists(id))
                 {
                     return NotFound();
                 }
@@ -73,37 +73,37 @@ namespace KidManagementSystem.Controllers
             return NoContent();
         }
 
-        // POST: api/Parents
+        // POST: api/vAdmissions
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Parents>> PostParents(Parents parents)
+        public async Task<ActionResult<vAdmissions>> PostvAdmissions(vAdmissions vAdmissions)
         {
-            _context.Parent.Add(parents);
+            _context.vAdmissions.Add(vAdmissions);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetParents", new { id = parents.ParentId }, parents);
+            return CreatedAtAction("GetvAdmissions", new { id = vAdmissions.AdmissionId }, vAdmissions);
         }
 
-        // DELETE: api/Parents/5
+        // DELETE: api/vAdmissions/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Parents>> DeleteParents(int id)
+        public async Task<ActionResult<vAdmissions>> DeletevAdmissions(int id)
         {
-            var parents = await _context.Parent.FindAsync(id);
-            if (parents == null)
+            var vAdmissions = await _context.vAdmissions.FindAsync(id);
+            if (vAdmissions == null)
             {
                 return NotFound();
             }
 
-            _context.Parent.Remove(parents);
+            _context.vAdmissions.Remove(vAdmissions);
             await _context.SaveChangesAsync();
 
-            return parents;
+            return vAdmissions;
         }
 
-        private bool ParentsExists(int id)
+        private bool vAdmissionsExists(int id)
         {
-            return _context.Parent.Any(e => e.ParentId == id);
+            return _context.vAdmissions.Any(e => e.AdmissionId == id);
         }
     }
 }
