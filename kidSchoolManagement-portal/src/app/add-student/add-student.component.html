@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="jumbotron">
+                <form [formGroup]="studentFormGroup">
+                    <h1>Student Details</h1>
+                    <label for="name">StudentName:</label>
+                    <input type="text" formControlName="studentName"><br>
+                    <label for="age">Age:</label>
+                    <input type="tel" formControlName="studentAge"><br>
+                    <button (click)="submit()">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="card-body">
+            <div class="jumbotron">
+            <table>
+        <tr><td>S.NO.</td>
+            <td>Ssession</td>
+        <td>Standard</td>
+        <td>SeatAvailabel</td>
+        <td>TotalFees</td>
+        <td>FirstInstallment</td>
+        <td>SecondInstallment</td>
+        <td>ThirdInstallment</td></tr>
+        <tr></tr>
+        <tr *ngFor="let list of enquiryList">
+            <td>{{list.sno}}</td>
+            <td>{{list.session}}</td>
+        <td>{{list.standard}}</td>
+        <td>{{list.seat}}</td>
+        <td>{{list.TotalFee}}</td>
+        <td>{{list.firstInstallment}}</td>
+        <td>{{list.secondInstallment}}</td>
+        <td>{{list.thirdInstallment}}</td>
+        <td></td>
+        <td><button routerLink='/admissionForm'>ApplyForAdmission</button></td>
+        </tr>
+            </table>
+            </div>
+        </div>
+    </div>
+</div>
