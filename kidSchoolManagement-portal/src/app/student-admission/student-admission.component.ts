@@ -25,8 +25,9 @@ export class StudentAdmissionComponent implements OnInit {
     })
   }
   studentAdmission(){
-   
-    this.httpService.post(this.rootURL+'/admissions',{FatherName:this.admissionFormGroup.controls.fatherName.value,MotherName:this.admissionFormGroup.controls.motherName.value,MobileNo:this.admissionFormGroup.controls.mobileNo.value,Address:this.admissionFormGroup.controls.address.value,StudentName:this.admissionFormGroup.controls.studentName.value,Age:this.admissionFormGroup.controls.age.value,Standard:this.admissionFormGroup.controls.standard.value}).subscribe(res=>{
+    let age:number=this.admissionFormGroup.value.studentAge;
+    let mobile:number=this.admissionFormGroup.value.mobileNo;
+    this.httpService.post(this.rootURL+'/admissions',{fatherName:this.admissionFormGroup.value.fatherName,motherName:this.admissionFormGroup.value.motherName,mobileNo:mobile,address:this.admissionFormGroup.value.address,studentName:this.admissionFormGroup.value.studentName,age:age,StandardName:this.admissionFormGroup.value.standard}).subscribe(res=>{
       this.result=res;
       console.log(this.result);
     

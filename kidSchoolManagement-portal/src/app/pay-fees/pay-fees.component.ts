@@ -19,7 +19,7 @@ export class PayFeesComponent implements OnInit {
     })
   }
   feesPay(){
-    this.httpService.post(this.rootURL+'/students',{StudentName:this.feesFormGroup.controls.studentName.value,FeesAmount:this.feesFormGroup.controls.feesAmount.value}).subscribe(res=>{
+    this.httpService.post(this.rootURL+'/payfees',{StudentName:this.feesFormGroup.value.studentName,Fees:this.feesFormGroup.value.feesAmount}).subscribe(res=>{
       this.result=res;
       console.log(this.result);
      

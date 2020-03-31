@@ -9,18 +9,19 @@
                     <label for="mname">MotherName:</label>
                     <input type="text" formControlName="motherName"><br>
                     <label for="no">MobileNo:</label>
-                    <input type="text" formControlName="mobileNo"><br>
+                    <input type="number" formControlName="mobileNo"><br>
                     <label for="address">Address:</label>
                     <input type="text" formControlName="address"><br>
                     
                     <label for="name">StudentName:</label>
                     <input type="text" formControlName="studentName"><br>
                     <label for="age">Age:</label>
-                    <input type="tel" formControlName="studentAge"><br>
-                    <label for="age">Standard:</label>
-                    <input type="radio"name="standard" value="Nursery" formControlName="standard">Nursery
+                    <input type="number" formControlName="studentAge"><br>
+                    <label for="std">Standard:</label>
+                    <input type="text" formControlName="standard"><br>
+                    <!-- <input type="radio"name="standard" value="Nursery" formControlName="standard">Nursery
                     <input type="radio" name="standard" value="Junior KG" formControlName="standard">Junior KG
-                    <input type="radio"name="standard" value="Senior KG" formControlName="standard"><br>Senior KG
+                    <input type="radio"name="standard" value="Senior KG" formControlName="standard"><br>Senior KG -->
                     <button (click)="studentAdmission()">Submit</button>
                 </form>
           

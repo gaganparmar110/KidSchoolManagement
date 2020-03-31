@@ -25,8 +25,10 @@ export class AddStudentComponent implements OnInit {
   }
 
   submit(){
-    console.log({FatherName:this.studentFormGroup.controls.fatherName.value});
-    this.httpService.post(this.rootURL+'/students',{FatherName:this.studentFormGroup.controls.fatherName.value,MotherName:this.studentFormGroup.controls.motherName.value,MobileNo:this.studentFormGroup.controls.mobileNo.value,Address:this.studentFormGroup.controls.address.value,StudentName:this.studentFormGroup.controls.studentName.value,Age:this.studentFormGroup.controls.age.value}).subscribe(res=>{
+    let age:number=this.studentFormGroup.value.age;
+    let mobile:number=this.studentFormGroup.value.mobileNo;
+   // console.log({FatherName:this.studentFormGroup.controls.fatherName.value});
+    this.httpService.post<any>(this.rootURL+'/students',{fatherName:this.studentFormGroup.value.fatherName,motherName:this.studentFormGroup.value.motherName,mobileNo:mobile,address:this.studentFormGroup.value.address,studentName:this.studentFormGroup.value.studentName,age:age}).subscribe(res=>{
       this.result=res;
       console.log(this.result);
     
